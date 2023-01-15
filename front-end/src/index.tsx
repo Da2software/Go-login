@@ -2,23 +2,29 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import LoginPage from './pages/auth/LoginPage';
+import HomePage from './pages/base/HomePage';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom"
+import MyDashboardPage from './pages/auth/MyDashboardPage';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
 const router = createBrowserRouter([
-  { path: "/", element: null }
+  { path: "/", element: <HomePage></HomePage> },
+  { path: "/Home", element: <HomePage></HomePage> },
+  { path: "/Login", element: <LoginPage></LoginPage> },
+  { path: "/MyDashboard", element: <MyDashboardPage></MyDashboardPage> },
 ]);
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={ }></RouterProvider>
+    <RouterProvider router={router}></RouterProvider>
   </React.StrictMode>
 );
 
