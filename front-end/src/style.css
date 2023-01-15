@@ -1,0 +1,18 @@
+/* BASE */
+
+.main-bg {
+    background-color: #111111;
+    min-width: 100%;
+    min-height: 100vh;
+    color: white;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-bg .container{
+    height: 100vh;
+    display: flex;
+}
+/* FORMS */
+
+/* BUTTONS */

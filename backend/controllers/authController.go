@@ -53,6 +53,8 @@ func Login(response *gin.Context) {
 	response.BindJSON(&req)
 
 	var user models.User
+	println("-----")
+	println(req.EMAIL)
 	database.DB.Where("email = ?", req.EMAIL).First(&user)
 	if user.Id == 0 {
 		response.JSON(http.StatusNotFound, gin.H{
