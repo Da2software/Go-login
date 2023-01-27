@@ -10,5 +10,5 @@ func Setup(app *gin.Engine) {
 	app.POST("/api/register", controllers.Register)
 	app.POST("/api/login", controllers.Login)
 	app.POST("/api/logout", controllers.Logout)
-	app.POST("/api/user-auth", controllers.UserAuth)
+	app.GET("/api/user-auth", controllers.UserAuth)
 }

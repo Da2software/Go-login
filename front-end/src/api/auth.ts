@@ -14,4 +14,11 @@ export class AuthEndpoints {
             body: JSON.stringify(body)
         });
     }
+    userAuth() {
+        return fetch(this.apiUrl + "/api/user-auth", {
+            method: 'GET',
+            credentials: 'include',
+            headers: headers
+        });
+    }
 }
