@@ -6,10 +6,12 @@ import LoginPage from './pages/auth/LoginPage';
 import HomePage from './pages/base/HomePage';
 import reportWebVitals from './reportWebVitals';
 import {
+  BrowserRouter,
   createBrowserRouter,
-  RouterProvider
+  Route
 } from "react-router-dom"
 import MyDashboardPage from './pages/auth/MyDashboardPage';
+import PrivateRoute from './pages/auth/PrivateRoute';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -18,13 +20,20 @@ const root = ReactDOM.createRoot(
 const router = createBrowserRouter([
   { path: "/", element: <HomePage></HomePage> },
   { path: "/Home", element: <HomePage></HomePage> },
-  { path: "/Login", element: <LoginPage></LoginPage> },
+  { path: "/Login", element: <LoginPage></LoginPage>},
   { path: "/MyDashboard", element: <MyDashboardPage></MyDashboardPage> },
 ]);
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <BrowserRouter>
+      <Route path={'/'} element={<LoginPage></LoginPage>}/>
+      <Route path={'/Login'} element={<LoginPage></LoginPage>}/>
+      <Route element={<PrivateRoute/>}>
+        
+      </Route>
+    </BrowserRouter>
+    {/* <RouterProvider router={router}></RouterProvider> */}
   </React.StrictMode>
 );
 
