@@ -1,7 +1,7 @@
 /* BASE */
 
 .main-bg {
-    background-color: #111111;
+    background-color: #252525;
     min-width: 100%;
     min-height: 100vh;
     color: white;
@@ -9,10 +9,29 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.main-bg .container{
-    height: 100vh;
+.main-bg .container {
+    min-height: 100vh;
     display: flex;
 }
+
+/* LOGIN */
+.login-img-bg {
+    background-color: #868A95;
+    max-height: 100vh;
+    overflow-y: hidden;
+    display: flex;
+}
+
+.login-img-bg img {
+    height: auto;
+    width: 100%;
+    margin: auto;
+}
+
+.login-img-bg-base {
+    background-color: #494949;
+}
+
 /* FORMS */
 
 /* BUTTONS */

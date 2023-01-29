@@ -4,15 +4,13 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import katanagirl from '../../assets/images/katanagirl.jpg';
 
-function LoginPage() {
+function SingupPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const auth = new AuthEndpoints();
     const navigate = useNavigate();
-    let [alertLogin, setAlertLogin] = useState(false);
 
     const onLogin = (event: any) => {
-        setAlertLogin(false);
         event.preventDefault();
         auth.login(email, password)
             .then(res => {
@@ -21,7 +19,6 @@ function LoginPage() {
                     navigate("/MyDashboard");
                     return res.json();
                 }
-                setAlertLogin(true);
             });
     }
     return (
@@ -49,11 +46,6 @@ function LoginPage() {
                                 <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                                 <label className="form-check-label" htmlFor="Check1">Check me out</label>
                             </div>
-                            {alertLogin &&
-                                <div className="col-sm-12 alert alert-danger align-self-center" role="alert">
-                                    Incorrect Email or Password!
-                                </div>
-                            }
                             <button type="submit" className="btn btn-primary col-sm-12 col-md-4 col-lg-3 mx-auto">
                                 <strong>Login</strong>
                             </button>
@@ -67,4 +59,4 @@ function LoginPage() {
         </div>
     );
 }
-export default LoginPage;
+export default SingupPage;

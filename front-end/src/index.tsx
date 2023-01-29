@@ -2,36 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import LoginPage from './pages/auth/LoginPage';
-import HomePage from './pages/base/HomePage';
 import reportWebVitals from './reportWebVitals';
 import {
-  BrowserRouter,
-  createBrowserRouter,
-  Route
+  BrowserRouter
 } from "react-router-dom"
-import MyDashboardPage from './pages/auth/MyDashboardPage';
-import PrivateRoute from './pages/auth/PrivateRoute';
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const router = createBrowserRouter([
-  { path: "/", element: <HomePage></HomePage> },
-  { path: "/Home", element: <HomePage></HomePage> },
-  { path: "/Login", element: <LoginPage></LoginPage>},
-  { path: "/MyDashboard", element: <MyDashboardPage></MyDashboardPage> },
-]);
+// const router = createBrowserRouter([
+//   { path: "/", element: <HomePage></HomePage> },
+//   { path: "/Home", element: <HomePage></HomePage> },
+//   { path: "/Login", element: <LoginPage></LoginPage>},
+//   { path: "/MyDashboard", element: <MyDashboardPage></MyDashboardPage> },
+// ]);
 
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Route path={'/'} element={<LoginPage></LoginPage>}/>
-      <Route path={'/Login'} element={<LoginPage></LoginPage>}/>
-      <Route element={<PrivateRoute/>}>
-        
-      </Route>
+      <App/>
     </BrowserRouter>
     {/* <RouterProvider router={router}></RouterProvider> */}
   </React.StrictMode>
