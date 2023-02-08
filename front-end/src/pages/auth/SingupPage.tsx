@@ -7,14 +7,14 @@ import katanagirl from '../../assets/images/katanagirl.jpg';
 function SingupPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [passwordValidate, setPasswordValidate] = useState("");
     const auth = new AuthEndpoints();
     const navigate = useNavigate();
 
-    const onLogin = (event: any) => {
+    const onSingup = (event: any) => {
         event.preventDefault();
         auth.login(email, password)
             .then(res => {
-                debugger
                 if (res.status === 200) {
                     navigate("/MyDashboard");
                     return res.json();
@@ -26,11 +26,11 @@ function SingupPage() {
             <div className="container">
                 <div className='col-12 row login-img-bg-base mx-auto'>
                     <div className='col-sm-6 login-img-bg'>
-                        <img src={katanagirl} alt="Artmarket-logo" />
+                        <img alt="Artmarket-logo" />
                     </div>
                     <div className='col-sm-6 row'>
-                        <form className='row col-sm-8 mx-auto my-5 align-content-center'
-                            onSubmit={onLogin}>
+                        <form className='row col-sm-8 mx-auto needs-validation my-5 align-content-center'
+                            onSubmit={onSingup}>
                             <div className="mb-3">
                                 <label htmlFor="InputEmail1" className="form-label">Email address</label>
                                 <input value={email} onChange={(e) => setEmail(e.target.value)}
@@ -40,7 +40,12 @@ function SingupPage() {
                             <div className="mb-3">
                                 <label htmlFor="InputPassword1" className="form-label">Password</label>
                                 <input value={password} onChange={(e) => setPassword(e.target.value)}
-                                    type="password" className="form-control" id="exampleInputPassword1" />
+                                    type="password" className="form-control" id="InputPassword1" />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="InputPassword2" className="form-label">Password</label>
+                                <input value={password} onChange={(e) => setPasswordValidate(e.target.value)}
+                                    type="password" className="form-control" id="InputPassword2" />
                             </div>
                             <div className="mb-3 ms-3 form-check">
                                 <input type="checkbox" className="form-check-input" id="exampleCheck1" />
